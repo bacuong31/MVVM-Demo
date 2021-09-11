@@ -7,6 +7,7 @@
         <variable
             name="loginViewModel"
             type="com.example.mvvm_demo.LoginViewModel" />
+        <import type="android.view.View"/>
     </data>
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +26,6 @@
             android:layout_marginTop="160dp"
             />
         <EditText
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -37,7 +37,6 @@
             />
 
         <EditText
-            android:id="@+id/edt_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -48,11 +47,11 @@
             android:text="@={loginViewModel.password}"
             />
         <TextView
-            android:id="@+id/tv_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{loginViewModel.messageLogin}"
-            android:visibility="visible"
+            android:visibility="@{loginViewModel.isShowMessageLogin ? View.VISIBLE : View.GONE}"
+            android:textColor="@{loginViewModel.isSuccess ? @color/purple_500 : @color/red}"
             android:textSize="18sp"
             android:layout_marginTop="10dp"
             />
